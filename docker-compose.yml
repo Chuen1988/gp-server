@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  gp-server:
+    container_name: gp-server
+    environment:
+      - TZ=Asia/Kuala_Lumpur
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "3"
+        max-size: "50m"
+    volumes:
+      ##starting from acme.sh version 3.0.6, _ecc suffix is added
+      ##TODO dummy SSL Cert
+      - /root/.acme.sh/gcsys.link_ecc:/usr/src/gp-server/cert/gcsys.link
+      - ./logs:/usr/src/gp-server/logs
+      - ./public:/usr/src/gp-server/public
+    build: .
+    ports:
+      - "2006:2006"
+      - "2007:2007"
+    networks:
+      - my_net
+ 
+networks:
+  my_net:
+    driver: bridge

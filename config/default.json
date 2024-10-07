@@ -1,0 +1,58 @@
+{
+  "host": "localhost",
+  "httpPort": 2006,
+  "httpsPort": 2007,
+  "public": "./public/",
+  "paginate": {
+    "default": 10
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "5zHKu/2+sJ4WcDVpFbqNHiCVydQ=",
+    "authStrategies": [
+      "jwt",
+      "local",
+      "local-bo",
+      "local-member"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://gp.com",
+      "issuer": "feathers",
+      "algorithm": "HS256"
+    },
+    "local": {
+      "usernameField": "userName",
+      "passwordField": "password"
+    },
+    "local-bo": {
+      "usernameField": "userNameBO",
+      "passwordField": "password",
+      "companyField": "company"
+    },
+    "local-member": {
+      "usernameField": "contactNumber",
+      "passwordField": "password",
+      "companyField": "company"
+    },
+    "oauth": {
+      "redirect": "/",
+      "auth0": {
+        "key": "<auth0 oauth key>",
+        "secret": "<auth0 oauth secret>",
+        "subdomain": "<auth0 subdomain>",
+        "scope": [
+          "profile",
+          "openid",
+          "email"
+        ]
+      }
+    }
+  },
+  "mongodb": "mongodb://localhost:27017/gp_server",
+  "redisHost": "localhost",
+  "redisPort": "6379"
+}
