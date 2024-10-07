@@ -1,6 +1,6 @@
 {
   "host": "gp.com",
-  "mongodb": "mongodb://gcs:password@172.31.20.123:30001/gp_server?authSource=gcs_server&wTimeoutMS=0&readPreference=primary&directConnection=true&ssl=false",
-  "redisHost": "172.31.20.123",
-  "redisPort": "6379"
+  "mongodb": "mongodb://<username>:<password>@<ipaddress>:<portnumber>/gp_server?authSource=gp_server&wTimeoutMS=0&readPreference=primary&directConnection=true&ssl=false",
+  "redisHost": "<ipaddress>",
+  "redisPort": "<portnumber>"
 }
